@@ -1,0 +1,161 @@
+// fonts
+$serif: 'Slabo 27px', arial, sans-serif;
+$sans-serif: 'open sans', arial, sans-serif;
+$script: 'Dancing Script', arial, sans-serif;
+
+// colors
+$primary-color: #DA5300;
+
+//navigation
+$hamWidth: 35px;
+$hamHeight: 3px;
+$hamSpacing: 8px;
+$menuTransition: .2s;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  min-width: 100%;
+  font-family: $serif;
+}
+
+h1 {
+  font-family: $sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.page-division {
+  float: left;
+  position: relative;
+}
+
+.page-left {
+  width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/40447/seeds-641520_1920.jpg), #fff;
+  background-size: 100vw auto ;
+  z-index: 2;
+  color: white;
+}
+
+.page-right {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  font-size: 2vw;
+}
+
+.page-right h1 {
+  display: none;
+  text-align: right;
+}
+
+.page-right p {
+  display: none;
+}
+
+.hamb-wrap {
+  height: 30px;
+  width: $hamWidth + 5;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+  z-index: 2;
+}
+.hamb {
+  height: $hamHeight;
+  width: $hamWidth;
+  background: $primary-color;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  transition: $menuTransition;
+  border-radius: 10% 10% 10% 10% / 40% 40% 40% 40%;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background: $primary-color;
+    height: $hamHeight;
+    width: 100%;
+    transition: $menuTransition;
+    border-radius: 10% 10% 10% 10% / 50% 50% 50% 50%;
+  } 
+  &:before {
+    top: $hamSpacing;
+  }
+  &:after {
+    top: -$hamSpacing;
+  }
+}
+.active {
+background: none;
+transition: $menuTransition;
+  &:before, &:after {
+    transition: $menuTransition;
+    top: 0;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg); 
+  } 
+}
+
+.name {
+  font-size: 5.75vw;
+  font-weight: normal;
+  text-shadow: 2px 2px 0 white;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 2vw;
+  height: 12vw;
+  overflow: hidden;
+  border-bottom: 3px solid $primary-color;
+  font-family: $script;
+  text-transform: none;
+  color: $primary-color;
+}
+
+.name-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.main-nav {
+  width: 100%;
+  margin-top: 10vw;
+}
+
+.main-nav li  {
+  text-align: center;
+  list-style-type: none;
+  font-size: 5vw;
+  display: none;
+  margin-top: 1vw;
+  font-family: $sans-serif;
+  font-weight: 800;
+  width: 100%;
+  &:hover { }
+}
+
+.main-nav li a {
+  color: $primary-color;
+  text-shadow: 2px 2px 0 #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
