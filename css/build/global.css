@@ -46,7 +46,15 @@ h1 {
   text-align: right;
 }
 
+.page-right h2 {
+  display: none;
+}
+
 .page-right p {
+  display: none;
+}
+
+.bio-pic {
   display: none;
 }
 

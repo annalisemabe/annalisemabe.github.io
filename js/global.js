@@ -50,7 +50,7 @@ var View = Backbone.View.extend({
       	duration: this.duration
 	    });
 
-    this.$pageRight.find('h1, p')
+    this.$pageRight.find('img, h1, h2, p')
     	.delay(this.duration)
     	.velocity('transition.slideUpIn');
   },
