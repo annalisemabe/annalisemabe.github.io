@@ -1,7 +1,7 @@
 // fonts
-$serif: 'Slabo 27px', arial, sans-serif;
-$sans-serif: 'open sans', arial, sans-serif;
-$script: 'Dancing Script', arial, sans-serif;
+$primary-font: 'Slabo 27px', arial, sans-serif;
+$secondary-font: 'open sans', arial, sans-serif;
+$tertiary-font: 'Pathway Gothic One', arial, sans-serif;
 
 // colors
 $primary-color: #DA5300;
@@ -21,11 +21,11 @@ $menuTransition: .2s;
 html, body {
   height: 100%;
   min-width: 100%;
-  font-family: $serif;
+  font-family: $primary-font;
 }
 
 h1 {
-  font-family: $sans-serif;
+  font-family: $secondary-font;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
@@ -125,7 +125,7 @@ transition: $menuTransition;
   height: 12vw;
   overflow: hidden;
   border-bottom: 3px solid $primary-color;
-  font-family: $script;
+  font-family: $tertiary-font;
   text-transform: none;
   color: $primary-color;
 }
@@ -147,7 +147,7 @@ transition: $menuTransition;
   font-size: 5vw;
   display: none;
   margin-top: 1vw;
-  font-family: $sans-serif;
+  font-family: $secondary-font;
   font-weight: 800;
   width: 100%;
   &:hover { }
