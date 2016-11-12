@@ -4,8 +4,10 @@ var route = window.location.hash.replace('#', '');
 function router (route) {
   var $page = route ? $('.' + route) : false;
   $('.page').css('display', 'none');
+  $('[data-page]').removeClass('active');
+  $('[data-page="' + route + '"]').addClass('active');
   ($page.length ? $page : $('.default.page')).css('display', 'block');
-  window.location.hash = route;
+  if (route) window.location.hash = route;
 }
 
 router(route);
@@ -18,6 +20,8 @@ $('.main-nav li a').on('click', function(e) {
   $('.main-nav li a').removeClass('active');
   $this.addClass('active');
   router(route);
+
+  return false;
 });
 
 // https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZe2NX_2tOnUuwRik/pubhtml
