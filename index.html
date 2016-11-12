@@ -1,55 +1,42 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-  <meta charset="UTF-8">
-
-  <title>Annalise Mabe's Site</title>
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'> 
-  <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" href="css/build/global.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" media="screen">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annalise Mabe</title>
 </head>
-
 <body>
 
-  <div class="page-division page-left">
-  <div class="hamb-wrap">
-    <div class="hamb"></div>
-  </div>
-  <h1 class="name">
-    <span class="name-inner">Annalise</span>
-    <span class="name-inner">Mabe</span>
-  </h1>
+<!-- Header -->
+  <h1 class="title"></h1>
+  <span class="tagline"></span>
   <nav class="main-nav">
-    <li><a href="index.html">About</a></li>
-    <li><a href="publications.html">Publications</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <ul>
+      <li><a class="active" id="about-page" data-page="about" href="#">About</a></li>
+      <li><a href="#" id="publications-page" data-page="publications">Publications</a></li>
+      <li><a href="#" id="contact-page" data-page="contact">Contact</a></li>
+    </ul>
   </nav>
-</div>
+  <div class="page default home">
+    <img class="profile-img" src="./img/annalise.jpg" alt="Annalise Mabe" width=600/>
+    <div class="about-me"></div>
+  </div>
 
-<div class="page-division page-right">
-  <h1>About Me</h1>
-  <img class="bio-pic" src="./img/annalise.jpg" height="300" alt="">
-  <p>Annalise Mabe is completing an MFA at the University of South Florida, where she writes nonfiction, poetry, and comics. Her work has been featured/is forthcoming in Brevity, New Delta Review, The Offing, The Rumpus, Booth, Word Riot, Hobart, and was nominated by The Boiler for a 2016 Pushcart Prize. She currently serves as a nonfiction editor for Sweet: A Literary Confection and lives in Tampa, Florida, where she teaches composition and creative writing at USF. She is currently seeking representation for her first nonfiction book, A Body among Bodies and Other Consequences.</p>
+<!-- Publications page -->
+  <section class="page publications"></section>
 
-  <p>She can be reached at <a href="mailto:annalisemabe@mail.usf.edu">annalisemabe@mail.usf.edu</a> or on Twitter: @AnnaliseMabe</p>
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js'></script>
+<!-- Contact Page -->
+  <section class="page contact"></section>
 
-<script src="js/global.js"></script>
-
+<!-- Loading -->
+  <div class="loading">
+    <h1 class="loading-title">loading</h1>
+  </div>
 </body>
-
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
+  <script src="./js/script.js"></script>
 </html>
