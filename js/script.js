@@ -2,11 +2,14 @@ var route = window.location.hash.replace('#', '');
 
 // super simple router - go to page specified in hash, otherwise go to "default"
 function router (route) {
-  var $page = route ? $('.' + route) : false;
+  var pageName = route ? route : $('.default.page').attr('data-page-name');
+  console.log(pageName)
+  var $page = $('[data-page-name="' + pageName + '"]');
+  console.log($page.html())
   $('.page').css('display', 'none');
   $('[data-page]').removeClass('active');
-  $('[data-page="' + route + '"]').addClass('active');
-  ($page.length ? $page : $('.default.page')).css('display', 'block');
+  $('[data-page="' + pageName + '"]').addClass('active');
+  $page.css('display', 'block');
   if (route) window.location.hash = route;
 }
 
@@ -64,7 +67,7 @@ Tabletop.init({
         }
       });
     }
-    $('.publications').html(html);
+    $('[data-page-name="publications"').html(html);
 
     // contact page
     data.contact.elements.forEach(function(item) {
@@ -73,7 +76,7 @@ Tabletop.init({
       html += '<p>Email: <a href="mailto:' + item['Email'] + '">' + item['Email'] + '</a></p>';
       html += '<p>Twitter: <a href="' + item['Twitter Link'] + '">' + item['Twitter Handle'] + '</a>';
       html += '<p>Instagram: <a href="' + item['Instagram Link'] + '">' + item['Instagram Handle'] + '</a>';
-      $('.contact').html(html);
+      $('[data-page-name="contact"').html(html);
     });
   },
   simpleSheet: false
