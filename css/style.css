@@ -114,7 +114,7 @@ img {
 
 @media (max-width: 780px) {
   html {
-    font-size: .75em;
+    font-size: .85em;
   }
   .main-nav li {
     margin: 0 5px;
