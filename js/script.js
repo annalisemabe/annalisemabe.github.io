@@ -57,7 +57,11 @@ Tabletop.init({
     for (var pub in pubs) {
       html += '<h2 class="subtitle">' + pub + '</h2>';
       pubs[pub].forEach(function(item) {
-        html += '<p><a href="' + item.link + '" target="_blank">' + item.publication + '</a></p>';
+        if (item.link) {
+          html += '<p><a href="' + item.link + '" target="_blank">' + item.publication + '</a></p>';
+        } else {
+          html += '<p>' + item.publication + '</p>';
+        }
       });
     }
     $('.publications').html(html);
