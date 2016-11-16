@@ -3,9 +3,7 @@ var route = window.location.hash.replace('#', '');
 // super simple router - go to page specified in hash, otherwise go to "default"
 function router (route) {
   var pageName = route ? route : $('.default.page').attr('data-page-name');
-  console.log(pageName)
   var $page = $('[data-page-name="' + pageName + '"]');
-  console.log($page.html())
   $('.page').css('display', 'none');
   $('[data-page]').removeClass('active');
   $('[data-page="' + pageName + '"]').addClass('active');
