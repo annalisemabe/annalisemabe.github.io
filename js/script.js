@@ -74,7 +74,7 @@ Tabletop.init({
       html += '<p>Email: <a href="mailto:' + item['Email'] + '">' + item['Email'] + '</a></p>';
       html += '<p>Twitter: <a href="' + item['Twitter Link'] + '">' + item['Twitter Handle'] + '</a>';
       html += '<p>Instagram: <a href="' + item['Instagram Link'] + '">' + item['Instagram Handle'] + '</a>';
-      $('[data-page-name="contact"').html(html);
+      $('[data-page-name="contact"]').html(html);
     });
   },
   simpleSheet: false
