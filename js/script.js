@@ -65,7 +65,7 @@ Tabletop.init({
         }
       });
     }
-    $('[data-page-name="publications"').html(html);
+    $('[data-page-name="publications"]').html(html);
 
     // contact page
     data.contact.elements.forEach(function(item) {
