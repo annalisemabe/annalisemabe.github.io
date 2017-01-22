@@ -82,9 +82,10 @@ img {
   position: fixed;
   height: 100%;
   width: 100%;
-  top: 0;
+  top: 10px;
   left: 0;
   background: #000;
+  transition: .75s;
 }
 
 .loading-title {
@@ -95,6 +96,24 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.loading-progress {
+  height: 11px;
+  background: #000;
+  top: -11px;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  transition: .75s;
+}
+.loading-progress.loading-state-1 { transform: translateX(8%); }
+.loading-progress.loading-state-2 { transform: translateX(15%); }
+.loading-progress.loading-state-3 { transform: translateX(20%); }
+.loading-progress.loading-state-4 { transform: translateX(35%); }
+.loading-progress.loading-state-5 { transform: translateX(52%); }
+.loading-progress.loading-state-6 { transform: translateX(77%); }
+.loading-progress.loading-state-complete-1 { transform: translateX(100%); }
+.loading-state-complete-3 { transform: translateY(calc(100% + 10px)); }
 
 .about-me {
   margin: 20px 0 0;

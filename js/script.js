@@ -1,6 +1,11 @@
-var route = window.location.hash.replace('#', '');
+var MAX_LOADER_COUNT = 6;
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 // super simple router - go to page specified in hash, otherwise go to "default"
+var route = window.location.hash.replace('#', '');
 function router (route) {
   var pageName = route ? route : $('.default.page').attr('data-page-name');
   var $page = $('[data-page-name="' + pageName + '"]');
@@ -10,8 +15,20 @@ function router (route) {
   $page.css('display', 'block');
   if (route) window.location.hash = route;
 }
-
 router(route);
+
+// fake loader
+function fakeLoader () {
+  var counter = 0;
+  var fakeLoaderInterval = window.setInterval(function() {
+    $lp = $('.loading-progress');
+    $lp.addClass('loading-state-' + (counter + 1));
+    $lp.removeClass('loading-state-' + counter);
+    counter++;
+    if (counter === MAX_LOADER_COUNT) window.clearInterval(fakeLoaderInterval);
+  }, getRandomArbitrary(200, 500));
+}
+fakeLoader();
 
 // navigation
 $('.main-nav li a').on('click', function(e) {
@@ -31,9 +48,14 @@ Tabletop.init({
   callback: function(data, tabletop) {
     var pubs = {};
     var html = '';
-
-    // remove loading screen
-    $('.loading').fadeOut();
+    
+    $('.loading-progress').removeClass('loading-state-' + MAX_LOADER_COUNT);
+    $('.loading-progress').addClass('loading-state-complete-1');
+    setTimeout(function() {
+      $('.loading-progress').addClass('loading-state-complete-3');
+      $('.loading').addClass('loading-state-complete-3');
+      setTimeout(function() { $('[class^="loading-state"]').remove() }, 750)
+    }, 750);
 
     // general
     data.general.elements.forEach(function(item) {
