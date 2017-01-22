@@ -104,7 +104,7 @@ img {
   bottom: 0;
   width: 100%;
   position: absolute;
-  transition: .75s;
+  transition: .35s;
 }
 
 .about-me {
