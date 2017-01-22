@@ -48,7 +48,7 @@ Tabletop.init({
     $lp.css('transform', 'translateX(100%)');
     setTimeout(function () {
       $('.loading').css('transform', 'translateY(calc(100% + 10px))');
-    }, 750);
+    }, 400);
 
     // general
     data.general.elements.forEach(function(item) {
