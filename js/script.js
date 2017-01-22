@@ -1,5 +1,3 @@
-var MAX_LOADER_COUNT = 6;
-
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -18,17 +16,13 @@ function router (route) {
 router(route);
 
 // fake loader
-function fakeLoader () {
-  var counter = 0;
-  var fakeLoaderInterval = window.setInterval(function() {
-    $lp = $('.loading-progress');
-    $lp.addClass('loading-state-' + (counter + 1));
-    $lp.removeClass('loading-state-' + counter);
-    counter++;
-    if (counter === MAX_LOADER_COUNT) window.clearInterval(fakeLoaderInterval);
-  }, getRandomArbitrary(200, 500));
-}
-fakeLoader();
+var $lp = $('.loading-progress');
+var progress = 0;
+var fakeLoaderInterval = window.setInterval(function() {
+  progress = progress + getRandomArbitrary(10, 25);
+  $lp.css('transform', 'translateX(' + progress + '%)');
+  if (progress >= 75) window.clearInterval(fakeLoaderInterval);
+}, getRandomArbitrary(100, 500));
 
 // navigation
 $('.main-nav li a').on('click', function(e) {
@@ -49,12 +43,11 @@ Tabletop.init({
     var pubs = {};
     var html = '';
     
-    $('.loading-progress').removeClass('loading-state-' + MAX_LOADER_COUNT);
-    $('.loading-progress').addClass('loading-state-complete-1');
-    setTimeout(function() {
-      $('.loading-progress').addClass('loading-state-complete-3');
-      $('.loading').addClass('loading-state-complete-3');
-      setTimeout(function() { $('[class^="loading-state"]').remove() }, 750)
+    // // finish loading animation
+    window.clearInterval(fakeLoaderInterval);
+    $lp.css('transform', 'translateX(100%)');
+    setTimeout(function () {
+      $('.loading').css('transform', 'translateY(calc(100% + 10px))');
     }, 750);
 
     // general
