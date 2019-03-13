@@ -86,9 +86,9 @@ Tabletop.init({
     data.contact.elements.forEach(function(item) {
       var html = '';
       html += '<p>' + item['Contact Text'] + '</p>';
-      html += '<p>Email: <a href="mailto:' + item['Email'] + '">' + item['Email'] + '</a></p>';
-      html += '<p>Twitter: <a href="' + item['Twitter Link'] + '">' + item['Twitter Handle'] + '</a>';
-      html += '<p>Instagram: <a href="' + item['Instagram Link'] + '">' + item['Instagram Handle'] + '</a>';
+      html += item['Email'] ? '<p>Email: <a href="mailto:' + item['Email'] + '">' + item['Email'] + '</a></p>' : '';
+      html += item['Twitter Handle'] ? '<p>Twitter: <a href="' + item['Twitter Link'] + '">' + item['Twitter Handle'] + '</a>' : '';
+      html += item['Instagram Handle'] ? '<p>Instagram: <a href="' + item['Instagram Link'] + '">' + item['Instagram Handle'] + '</a>' : ''
       $('[data-page-name="contact"]').html(html);
     });
   },
