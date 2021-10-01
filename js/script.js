@@ -37,9 +37,11 @@ $('.main-nav li a').on('click', function(e) {
 });
 
 // https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZe2NX_2tOnUuwRik/pubhtml
-Tabletop.init({
-  key: '1tPZrJaXlCi9LtwP1peFM_Yu17LYZe2NX_2tOnUuwRik',
-  callback: function(data, tabletop) {
+
+Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZe2NX_2tOnUuwRik/pub?output=csv', {
+  download: true,
+  header: true,
+  complete: function(data, tabletop) {
     var pubs = {};
     var html = '';
     
