@@ -41,7 +41,7 @@ $('.main-nav li a').on('click', function(e) {
 Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZe2NX_2tOnUuwRik/pub?output=csv', {
   download: true,
   header: true,
-  complete: function(data, tabletop) {
+  complete: function(data) {
     var pubs = {};
     var html = '';
     
@@ -52,20 +52,28 @@ Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZ
       $('.loading').css('transform', 'translateY(calc(100% + 10px))');
     }, 400);
 
+    const parsedData = data.reduce((mem, item) => {
+      Object.keys(item).forEach(key => {
+        if (!item[key]) return
+        mem[key] ? mem[key].push(item[key]) : mem[key] = [item[key]]
+      })
+      return mem
+    }, {})
+
     // general
-    data.general.elements.forEach(function(item) {
+    parsedData.general.forEach(function(item) {
       $('.title').text(item['Website Title']);
       item.Tagline.length && $('.tagline').text(item.Tagline);
     });
 
     // home
-    data.home.elements.forEach(function(item) {
+    parsedData.home.forEach(function(item) {
       $('.profile-img').attr('src', item['Image Link']);
       $('.about-me').html(item['About Me Text'].length ? '<p>' + item['About Me Text'] + '</p>' : '');
     });
 
     // publications page
-    data.publications.elements.forEach(function(item) {
+    parsedData.publications.forEach(function(item) {
       if (!pubs[item.Category]) {
         pubs[item.Category] = [];
       }
@@ -85,7 +93,7 @@ Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZ
     $('[data-page-name="publications"]').html(html);
 
     // contact page
-    data.contact.elements.forEach(function(item) {
+    parsedData.contact.forEach(function(item) {
       var html = '';
       html += '<p>' + item['Contact Text'] + '</p>';
       html += item['Email'] ? '<p>Email: <a href="mailto:' + item['Email'] + '">' + item['Email'] + '</a></p>' : '';
