@@ -52,7 +52,7 @@ Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZ
       $('.loading').css('transform', 'translateY(calc(100% + 10px))');
     }, 400);
 
-    const parsedData = data.reduce((mem, item) => {
+    const parsedData = data.data.reduce((mem, item) => {
       Object.keys(item).forEach(key => {
         if (!item[key]) return
         mem[key] ? mem[key].push(item[key]) : mem[key] = [item[key]]
