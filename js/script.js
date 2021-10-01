@@ -90,7 +90,7 @@ Papa.parse('https://docs.google.com/spreadsheets/d/1tPZrJaXlCi9LtwP1peFM_Yu17LYZ
 
     // contact page
     var html = '';
-    html += '<p>' + parsedData['Contact Text'] + '</p>';
+    html += parsedData['Contact Text'] ? '<p>' + parsedData['Contact Text'] + '</p>' : '';
     html += parsedData['Email'] ? '<p>Email: <a href="mailto:' + parsedData['Email'] + '">' + parsedData['Email'] + '</a></p>' : '';
     html += parsedData['Twitter Handle'] ? '<p>Twitter: <a href="' + parsedData['Twitter Link'] + '">' + parsedData['Twitter Handle'] + '</a>' : '';
     html += parsedData['Instagram Handle'] ? '<p>Instagram: <a href="' + parsedData['Instagram Link'] + '">' + parsedData['Instagram Handle'] + '</a>' : ''
